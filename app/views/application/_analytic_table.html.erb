@@ -1,7 +1,7 @@
 <table class="table table-bordered">
   <% analytics.each do |analytic| %>  
     <tr>
-      <td><%= "#{analytic.phrase} (#{analytic.count})" %></td>
+      <td><%= "#{analytic.phrase} (#{analytic.count} #{'search'.pluralize(analytic.count)})" %></td>
     </tr>
   <% end %>
 </table>
