@@ -7,8 +7,8 @@ $ ->
       return
   
   $(document).on 'keyup', '#search_phrase', ->
-    phrase = $(@).val()
-    delayTime = 750
+    phrase = $(@).val().trim()
+    delayTime = 1000
     minimumWord = 4
 
     if phrase.split(' ').length >= minimumWord
@@ -24,10 +24,12 @@ $ ->
     return
 
   $('#clear_analytic').click ->
-    $.ajax
-      type: 'POST'
-      url: '/clear_analytic'
-      dataType: 'script'
-
-    return false
+    if confirm('Are you sure?')
+      $.ajax
+        type: 'POST'
+        url: '/clear_analytic'
+        dataType: 'script'
+      return false
+    else
+      return false
 
