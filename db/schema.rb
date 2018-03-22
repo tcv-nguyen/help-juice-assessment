@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180322193300) do
   enable_extension "plpgsql"
 
   create_table "analytics", force: :cascade do |t|
-    t.text "search_phrase"
-    t.integer "count"
+    t.text "phrase"
+    t.integer "count", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

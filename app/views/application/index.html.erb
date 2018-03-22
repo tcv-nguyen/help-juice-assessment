@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <%= form_for :search, class: "form-inline" do |f| %>
+      <div class="form-group">
+        <%= f.label :phrase %>
+        <%= f.text_field :phrase, class: "form-control" %>
+      </div>
+
+      <%#= f.submit 'Submit', class: "btn btn-info" %>
+    <% end %>
+
+    <%= link_to 'Clear Analytic', '', data: {confirm: 'Are you sure?'}, class: 'btn btn-warning', id: :clear_analytic %>
+  </div>
+</div>
+
+<div id="analytic_table" style="margin-top: 20px">
+  <%= render '/application/analytic_table' %>
+</div>
