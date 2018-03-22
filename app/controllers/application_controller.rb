@@ -3,21 +3,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :analytics
 
-  WORD_LIBRARY = %w(
-    how
-    do
-    i
-    cancel
-    my
-    subscription
-    what
-    is
-    account
-    number
-    subscription
-    signup
-  )
-
   def analytic
     respond_to do |format|
       format.js do
@@ -46,7 +31,8 @@ class ApplicationController < ActionController::Base
     end
 
     def detect_incomplete_word?(phrase)
-      phrase_array = phrase.downcase.split(' ')
-      (phrase_array & WORD_LIBRARY).size != phrase_array.size
+      phrase_array = phrase.downcase.split(' ').uniq
+      word_library = ENV['WORD_LIBRARY'].split(' ').uniq
+      (phrase_array & word_library).size != phrase_array.size
     end
 end

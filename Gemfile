@@ -58,6 +58,7 @@ gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :production do
